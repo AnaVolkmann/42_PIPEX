@@ -1,4 +1,4 @@
-SRCS = main.c utils.c error.c libft_utils.c 
+SRCS = main.c utils.c error.c pipex.c
 OBJS = $(SRCS:.c=.o)
 CC = cc
 LIBFT = libft
