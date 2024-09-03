@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 12:18:54 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/03 17:02:24 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/03 18:02:46 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void	free_array(char **array)
 	free(array);
 }
 
-/** @brief Frees the resources allocated for the pipex structure and exits the program.
+/** @brief Cleans up the resources allocated for the pipex structure and exits the program.
  * @param pipex The pipex structure.
  * @param error The error message to display.
- * @param error_exit The error code to exit with.*/
-void	free_and_exit(t_pipex *pipex, char *error, int error_code)
+ * @param error_exit The error code to exit with. */
+void	cleanup_and_exit(t_pipex *pipex, char *error_message, int error_code)
 {
-	perror(error);
+	perror(error_message);
 	free_array(pipex->path_name);
 	free_array(pipex->cmd1);
 	free_array(pipex->cmd2);

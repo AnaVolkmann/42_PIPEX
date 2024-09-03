@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:26:16 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/03 17:15:22 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/03 18:04:26 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	handle_input(int argc, char **argv);
 
 void	error_exit(char *error_message, int error_exit);
 void	free_array(char **array);
-void	free_and_exit(t_pipex *pipex, char *error, int error_exit);
 char	**get_path_name(char **envp);
+void	cleanup_and_exit(t_pipex *pipex, char *error_message, int error_code);
 
 /********************LIBFT_UTILS****************/
 
