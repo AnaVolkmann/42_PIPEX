@@ -11,7 +11,7 @@ all:		$(NAME)
 
 $(NAME):	$(LIBFTA) $(OBJS)	
 			$(CC)  $(CFLAGS) $(OBJS) $(LIBFTA) -o $(NAME)
-			@echo "\033[032mCOMPILATION SUCCEEDED\033[0m"
+			@echo "\033[032mPIPEX COMPILATION SUCCEEDED\033[0m"
 	
 $(LIBFTA): $(LIBFT)
 			make -s -C $(LIBFT)

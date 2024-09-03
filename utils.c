@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:42:44 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/02 17:09:02 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:13:58 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,18 @@ t_pipex	init_pipex(char **argv, char **envp)
  * @param argc The number of arguments.
  * @param argv An array of strings containing the arguments.
  * */
-void handle_imput(int argc, char **argv)
+void handle_input(int argc, char **argv)
 {
-	int	i;
-	int	j;
+	int i;
 
 	if (argc < 5)
-		error_exit ("Error\nCorrect usage: %s file1 cmd1 cmd2 file2\n", \
-		EXIT_FAILURE);
-	i = 0;
-	while (argv[i++])
+		error_exit("Error: Incorrect number of arguments. Usage: ./program file1 cmd1 cmd2 file2\n", EXIT_FAILURE);
+	i = 1;
+	while (i < argc)
 	{
-		if (argv[i][0] == 0 || argv[i][0] == 39)
-			error_exit("Error\nInvalid arguments\n", EXIT_FAILURE);
-		j = 0;
-		while (!ft_isspace(argv[i][j]))
-		{
-			if (!argv[i][++j])
-				error_exit("Error\nEmpty string\n", EXIT_FAILURE);
-		}
+		if (argv[i][0] == '\0' || argv[i][0] == '\'')
+			error_exit("Error: Invalid argument provided.\n", EXIT_FAILURE);
+		i++;
 	}
 }
 

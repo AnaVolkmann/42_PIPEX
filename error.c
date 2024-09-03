@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 12:18:54 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/02 17:05:42 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:02:24 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * @param error_exit- an error code to exit*/
 void	error_exit(char *error_message, int error_code)
 {
-    write(2, error_message, ft_strlen(error_message));
+	write(2, error_message, ft_strlen(error_message));
 	exit(error_code);
 }
 

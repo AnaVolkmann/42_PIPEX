@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:26:16 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/02 16:47:33 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:15:22 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_pipex
 /**********************UTILS********************/
 
 t_pipex	init_pipex(char **argv, char **envp);
-void	handle_imput(int argc, char **argv);
+void	handle_input(int argc, char **argv);
 
 /**********************ERROR********************/
 
