@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 18:40:28 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/03 19:10:53 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/03 19:37:18 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,15 @@ void	exec_cmd(char *cmd, char **env)
 // int dup2(int fd1, int fd2) : it will close
 // fd2 and duplicate the value of fd2 to fd1
 //else said, it will redirect fd1 to fd2
+/** @brief Sets up and executes a command in the child process with redirected I/O.
+ *
+ * Redirects standard input to a file and standard output to a pipe. Executes the command specified
+ * in `argv[2]` with the given environment.
+ *
+ * @param argv Array of arguments: `argv[1]` is the input file, `argv[2]` is the command.
+ * @param p_fd Pipe file descriptors: `p_fd[0]` for reading, `p_fd[1]` for writing.
+ * @param env Environment variables for the command.
+ */
 void	child_process(char **argv, int *p_fd, char **env)
 {
 	int	fd;
@@ -44,6 +53,15 @@ void	child_process(char **argv, int *p_fd, char **env)
 	exec_cmd(argv[2], env);
 }
 
+/** @brief Sets up and executes a command in the parent process with redirected I/O.
+ *
+ * Redirects standard output to a file and standard input from a pipe. Executes the command specified
+ * in `argv[3]` with the given environment.
+ *
+ * @param argv Array of arguments: `argv[4]` is the output file, `argv[3]` is the command.
+ * @param p_fd Pipe file descriptors: `p_fd[0]` for reading, `p_fd[1]` for writing.
+ * @param env Environment variables for the command.
+ */
 void	parent_process(char **argv, int *p_fd, char **env)
 {
 	int	fd;
