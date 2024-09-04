@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:26:16 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/03 18:42:44 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/04 18:56:26 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@
 typedef struct s_pipex
 {
 	int	pid;
-	char **cmd1;
-	char **cmd2;
-	char **path_name;
+	char	**cmd1;
+	char	**cmd2;
+	char	**path_name;
+	int		fd[2];
+	
 }				t_pipex;
 
 /**********************UTILS********************/
@@ -48,8 +50,9 @@ void	cleanup_and_exit(t_pipex *pipex, char *error_message, int error_code);
 
 /***********************PIPEX********************/
 
-int		open_file(char *file, int in_or_out);
-void	child_process(char **argv, int *p_fd, char **env);
-void	parent_process(char **argv, int *p_fd, char **env);
+void	child_process(t_pipex *pipex, char *infile, char **env);
+void	parent_process(t_pipex *pipex, char *outfile, char **env);
+void	exec(t_pipex *pipex, char **env, char c);
+void	exec_cmd_path(t_pipex *ppx, int i, char **cmd, char **envp);
 
 #endif
