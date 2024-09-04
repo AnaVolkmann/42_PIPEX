@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 18:40:28 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/04 18:59:48 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:23:22 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,21 +68,18 @@ void exec(t_pipex *pipex, char **env, char exec_type)
 	{
 		while (pipex->path_name[i])
 		{
-			while (pipex->path_name[i])
-			{
 				exec_cmd_path(pipex, i, pipex->cmd1, env);
-				cleanup_and_exit(pipex, pipex->cmd1[0], EXIT_COMMAND);
 				i++;
-			}
 		}
+		cleanup_and_exit(pipex, pipex->cmd1[0], EXIT_COMMAND);
 	}
 	if (exec_type == 'p')
 	{
 		while (pipex->path_name[i])
 		{
 			exec_cmd_path(pipex, i, pipex->cmd2, env);
-			cleanup_and_exit(pipex, pipex->cmd2[0], EXIT_COMMAND);
 			i++;
 		}
+		cleanup_and_exit(pipex, pipex->cmd2[0], EXIT_COMMAND);
 	}
 }
