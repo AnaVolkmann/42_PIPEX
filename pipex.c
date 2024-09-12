@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 18:40:28 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/04 19:23:22 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/12 13:49:55 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	child_process(t_pipex *pipex, char *infile, char **env)
 	dup2(pipex->fd[1], 1);
 	close(pipex->fd[1]);
 	exec(pipex, env, 'c');
-} 
+}
 
 void	parent_process(t_pipex *pipex, char *outfile, char **env)
 {
@@ -43,8 +43,8 @@ void	parent_process(t_pipex *pipex, char *outfile, char **env)
 
 void	exec_cmd_path(t_pipex *pipex, int i, char **cmd, char **env)
 {
-	char *original_path;
-	char *joined_path;
+	char	*original_path;
+	char	*joined_path;
 
 	original_path = pipex->path_name[i];
 	joined_path = ft_strjoin(original_path, cmd[0]);
@@ -59,17 +59,17 @@ void	exec_cmd_path(t_pipex *pipex, int i, char **cmd, char **env)
 	pipex->path_name[i] = original_path;
 }
 
-void exec(t_pipex *pipex, char **env, char exec_type)
+void	exec(t_pipex *pipex, char **env, char exec_type)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (exec_type == 'c')
 	{
 		while (pipex->path_name[i])
 		{
-				exec_cmd_path(pipex, i, pipex->cmd1, env);
-				i++;
+			exec_cmd_path(pipex, i, pipex->cmd1, env);
+			i++;
 		}
 		cleanup_and_exit(pipex, pipex->cmd1[0], EXIT_COMMAND);
 	}

@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:42:44 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/04 17:37:28 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/12 13:47:45 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ t_pipex	init_pipex(char **argv, char **env)
 	return (pipex);
 }
 
-/** @brief Handles the input arguments, exits the program and prints error, if error.
+/** @brief Handles the input arguments, exits the program and
+			prints error, if error.
  * @param argc The number of arguments.
  * @param argv An array of strings containing the arguments.
  * */
@@ -61,9 +62,11 @@ void	handle_input(int argc, char **argv)
 	}
 }
 
-/** @brief Extracts and processes the PATH environment variable into a list of directories.
+/** @brief Extracts and processes the PATH environment
+			variable into a list of directories.
  *  @param env The array of environment variables.
- *  @return An array of strings, each representing a directory from the PATH, or NULL on failure. */
+ *  @return An array of strings, each representing a
+			directory from the PATH, or NULL on failure. */
 char	**get_path_name(char **env)
 {
 	char	**path;
@@ -82,8 +85,8 @@ char	**get_path_name(char **env)
 	return (path);
 }
 
-
-/** @brief Splits a string into an array of strings, removing whitespace from each element.
+/** @brief Splits a string into an array of strings,
+			removing whitespace from each element.
  * @param str The string to be split and trimmed.
  * @param c The delimiter character used to split the string.
  * @return An array of strings, where each element is a trimmed substring of 

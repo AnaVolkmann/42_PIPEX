@@ -6,11 +6,11 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 12:18:54 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/04 17:00:29 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/12 13:48:44 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- #include "pipex.h"
+#include "pipex.h"
 
 /** @brief exits the program w/ am error message and code
  * @param error_message - the ,ssage to display
@@ -35,7 +35,8 @@ void	free_array(char **array)
 	free(array);
 }
 
-/** @brief Cleans up the resources allocated for the pipex structure and exits the program.
+/** @brief Cleans up the resources allocated for the pipex
+			structure and exits the program.
  * @param pipex The pipex structure.
  * @param error The error message to display.
  * @param error_exit The error code to exit with. */
@@ -46,4 +47,4 @@ void	cleanup_and_exit(t_pipex *pipex, char *error_message, int error_code)
 	free_array(pipex->cmd1);
 	free_array(pipex->cmd2);
 	exit(error_code);
-} 
+}
