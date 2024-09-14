@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:31:19 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/04 17:13:09 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/14 17:47:17 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	main(int argc, char **argv, char **env)
 {
 	t_pipex	pipex;
 
-	pipex = init_pipex(argv, env);
 	handle_input(argc, argv);
+	pipex = init_pipex(argv, env);
 	if (pipe(pipex.fd) == -1)
 		cleanup_and_exit(&pipex, "Pipe creation failed", 1);
 	pipex.pid = fork();

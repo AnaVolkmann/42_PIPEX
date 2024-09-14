@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 12:18:54 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/12 13:48:44 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/14 18:12:05 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	free_array(char **array)
 	int	i;
 
 	i = 0;
-	while (array[i++])
-		free(array[i]);
+	while (array[i])
+		free(array[i++]);
 	free(array);
 }
 

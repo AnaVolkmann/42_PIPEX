@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 18:40:28 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/12 13:49:55 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/14 18:29:22 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,15 @@ void	exec_cmd_path(t_pipex *pipex, int i, char **cmd, char **env)
 	char	*original_path;
 	char	*joined_path;
 
-	original_path = pipex->path_name[i];
+	original_path = ft_strdup(pipex->path_name[i]);
 	joined_path = ft_strjoin(original_path, cmd[0]);
 	if (!joined_path)
 	{
 		perror("ft_strjoin failed");
 		exit(EXIT_FAILURE);
 	}
-	pipex->path_name[i] = joined_path;
-	execve(pipex->path_name[i], cmd, env);
+	execve(joined_path, cmd, env);
 	free(joined_path);
-	pipex->path_name[i] = original_path;
 }
 
 void	exec(t_pipex *pipex, char **env, char exec_type)
