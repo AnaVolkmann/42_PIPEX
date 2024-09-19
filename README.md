@@ -1,1 +1,0 @@
- Pipes allow the output of one command to be used as input to another command, and the main program works by executing two commands where the first command’s output is piped into the second command’s input.

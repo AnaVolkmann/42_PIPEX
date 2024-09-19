@@ -6,15 +6,22 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:42:44 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/12 13:47:45 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/19 14:56:37 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-/** @brief function to inicialize the struct
- * @param argv - arguments from the command-line
- * @param env - environment variables
+/** @brief Initializes the pipex structure with command and path information.
+ * 
+ * This function extracts the command-line arguments, checks if any command
+ * contains single quotes, and splits the command strings into arrays. It also
+ * retrieves and processes the PATH environment variable.
+ * 
+ * @param argv Array of command-line arguments
+ *  (input file, cmd1, cmd2, output file).
+ * @param env  Array of environment variables passed from the shell.
+ * @return t_pipex Initialized pipex structure containing command and path info.
  */
 t_pipex	init_pipex(char **argv, char **env)
 {
@@ -35,11 +42,17 @@ t_pipex	init_pipex(char **argv, char **env)
 	return (pipex);
 }
 
-/** @brief Handles the input arguments, exits the program and
-			prints error, if error.
- * @param argc The number of arguments.
- * @param argv An array of strings containing the arguments.
- * */
+/** @brief Validates the input arguments and exits the program
+ *  if any errors are found.
+ * 
+ * This function checks that the correct number of arguments are passed and that
+ * none of the command-line arguments are empty or invalid. It will exit with an
+ * error message if the input is incorrect.
+ * 
+ * @param argc The number of command-line arguments.
+ * @param argv Array of command-line arguments
+ *  (input file, cmd1, cmd2, output file).
+ */
 void	handle_input(int argc, char **argv)
 {
 	int	i;
@@ -62,11 +75,17 @@ void	handle_input(int argc, char **argv)
 	}
 }
 
-/** @brief Extracts and processes the PATH environment
-			variable into a list of directories.
- *  @param env The array of environment variables.
- *  @return An array of strings, each representing a
-			directory from the PATH, or NULL on failure. */
+/** @brief Extracts the PATH env. variables and splits it into directories.
+ * 
+ * This function searches the environment variables 
+ * for the PATH, removes the "PATH="
+ * prefix, and splits the string by ':' into an array
+ *  of directory paths. Each directory
+ * path is appended with a '/' for easier command concatenation later.
+ * 
+ * @param env Array of environment variables.
+ * @return char** Array of directories extracted from the PATH.
+ */
 char	**get_path_name(char **env)
 {
 	char	**path;
@@ -85,12 +104,17 @@ char	**get_path_name(char **env)
 	return (path);
 }
 
-/** @brief Splits a string into an array of strings,
-			removing whitespace from each element.
- * @param str The string to be split and trimmed.
- * @param c The delimiter character used to split the string.
- * @return An array of strings, where each element is a trimmed substring of 
- * the original string, or NULL if an error occurs. */
+/** @brief Splits a string based on a delimiter and trims
+ *  whitespace from each part.
+ * 
+ * This function first trims leading and trailing whitespace
+ *  from the input string,
+ * splits it by a given delimiter, and trims each resulting substring.
+ * 
+ * @param str The input string to be split and trimmed.
+ * @param c   The delimiter character used to split the string.
+ * @return char** Array of trimmed substrings or NULL if an error occurs.
+ */
 char	**ft_split_trim(char *str, char c)
 {
 	char	*first_trim;
