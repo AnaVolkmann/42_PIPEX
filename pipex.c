@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 18:40:28 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/19 14:56:59 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/19 16:33:34 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	parent_process(t_pipex *pipex, char *outfile, char **env)
 {
 	int	fd;
 
-	wait(NULL);
 	fd = open(outfile, O_WRONLY | O_TRUNC | O_CREAT, 0666);
 	if (fd < 0)
 		cleanup_and_exit(pipex, outfile, EXIT_FAILURE);
