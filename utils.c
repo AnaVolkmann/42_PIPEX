@@ -6,7 +6,7 @@
 /*   By: ana-lda- <ana-lda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:42:44 by ana-lda-          #+#    #+#             */
-/*   Updated: 2024/09/21 12:52:02 by ana-lda-         ###   ########.fr       */
+/*   Updated: 2024/09/21 12:57:10 by ana-lda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ t_pipex	init_pipex(char **argv, char **env)
 	pipex.fd[1] = 0;
 	pipex.path_name = get_path_name(env);
 	if (!pipex.path_name)
-		error_exit("Error: PATH not found in environment.\
-			Program cannot run without PATH.\n", EXIT_FAILURE);
+		error_exit("Error: Program cannot run without PATH.\n", EXIT_FAILURE);
 	if (ft_strchr(argv[2], SINGLE_QUOTE) != NULL)
 		pipex.cmd1 = ft_split_trim(argv[2], SINGLE_QUOTE);
 	else
