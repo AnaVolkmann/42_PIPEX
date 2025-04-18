@@ -23,6 +23,13 @@
 
 Pipex is a C project that simulates the behavior of the shell when piping the output of one command to the input of another using the | operator. The project involves using system calls like fork(), pipe(), dup2(), and execve() to create a pipeline between two processes, enabling them to communicate by passing data from one command to another, just as you would in a Unix-like shell.
 
+> [!NOTE]  
+> In accordance with the 42 School coding norms:  
+> * Each function must not exceed 25 lines of code.  
+> * Every variable should be declared at the top of the function and initialized on a separate line.  
+> * Only allowed functions may be used—using others is considered cheating.
+
+
 ````
 # ./pipex infile cmd1 cmd2 outfile
 pipe()
